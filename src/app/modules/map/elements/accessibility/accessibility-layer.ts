@@ -11,8 +11,8 @@ import {
 
 const MIN_ZOOM = 7;
 const INACCESSIBLE_CARRIAGEWAY_TYPES = ['BU', 'BUS', 'CADO', 'FP', 'OVB', 'RP', 'VDF', 'VDV', 'VP', 'VV', 'VZ'];
-const INACTIVE_MUNICIPALITY_COLOR = '#939393';
-const LINE_OPACITY = 0.5;
+const INACTIVE_MUNICIPALITY_COLOR = '#002633';
+const LINE_OPACITY = 1;
 
 export class AccessibilityLayer extends MapLayer {
   constructor(map: Map, sourceId: string, accessibilityDataService: AccessibilityDataService) {
@@ -91,7 +91,7 @@ export class AccessibilityLayer extends MapLayer {
       this.map.setPaintProperty(this.id, 'line-opacity', [
         'case',
         ['!=', ['get', 'municipalityId'], municipalityId],
-        0,
+        1,
         LINE_OPACITY,
       ]);
       this.map.setPaintProperty(this.id, 'line-color', [
